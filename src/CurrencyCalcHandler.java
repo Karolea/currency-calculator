@@ -4,8 +4,8 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class CurrencyCalcHandler extends DefaultHandler
 {
-    double rate = -1;
-    String currency;
+    private double rate = -1;
+    private final String currency;
 
     CurrencyCalcHandler(String curr)
     {

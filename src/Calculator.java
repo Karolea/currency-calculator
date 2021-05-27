@@ -8,8 +8,8 @@ import java.io.InputStream;
 
 public class Calculator
 {
-    double rate;
-    String fileName = "./eurofxref-daily.xml";
+    private double rate;
+    private final String fileName = "./eurofxref-daily.xml";
 
     Calculator() {}
 

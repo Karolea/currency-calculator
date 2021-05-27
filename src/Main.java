@@ -10,10 +10,16 @@ public class Main
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("\nTarget currency code: ");
+        System.out.println("Target currency code: ");
         currency = scanner.nextLine();
         System.out.println("Type your amount (in EUR) using comma as decimal separator: ");
         amountIn = scanner.nextDouble();
+
+        if (amountIn < 0)
+        {
+            System.out.println("The minimal amount of money is 0.00!");
+            return;
+        }
 
         Calculator calculator = new Calculator();
         amountOut = calculator.calculate(amountIn, currency);
