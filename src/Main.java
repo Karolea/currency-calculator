@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -12,12 +13,19 @@ public class Main
 
         System.out.println("Target currency code: ");
         currency = scanner.nextLine();
-        System.out.println("Type your amount (in EUR) using comma as decimal separator: ");
-        amountIn = scanner.nextDouble();
+        System.out.println("Type your amount (in EUR): ");
+        try {
+            amountIn = scanner.nextDouble();
+        } catch (InputMismatchException e)
+        {
+            System.out.println("ERROR: Input number format is incorrect, try changing the decimal separator.");
+            e.printStackTrace();
+            return;
+        }
 
         if (amountIn < 0)
         {
-            System.out.println("The minimal amount of money is 0.00!");
+            System.out.println("ERROR: The minimal amount of money is 0.00!");
             return;
         }
 
