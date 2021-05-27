@@ -1,3 +1,4 @@
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main
@@ -17,6 +18,10 @@ public class Main
         Calculator calculator = new Calculator();
         amountOut = calculator.calculate(amountIn, currency);
 
-        System.out.println("\n" + amountIn + " EUR = " + amountOut + ' ' + currency);
+        if (amountOut >= 0)
+        {
+            String result = "\n" + amountIn + " EUR = " + amountOut + ' ' + currency;
+            System.out.println(result.toUpperCase(Locale.ROOT));
+        }
     }
 }

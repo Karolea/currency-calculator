@@ -4,7 +4,7 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class CurrencyCalcHandler extends DefaultHandler
 {
-    double rate;
+    double rate = -1;
     String currency;
 
     CurrencyCalcHandler(String curr)
@@ -14,6 +14,10 @@ public class CurrencyCalcHandler extends DefaultHandler
 
     public double getRate()
     {
+        if (rate == -1)
+        {
+            System.out.println("ERROR: Chosen currency is unavailable!");
+        }
         return rate;
     }
 
@@ -24,7 +28,7 @@ public class CurrencyCalcHandler extends DefaultHandler
         {
             if (attributes.getQName(0).equals("currency"))
             {
-                if (attributes.getValue(0).equals(currency))
+                if (attributes.getValue(0).equalsIgnoreCase(currency))
                 {
                     rate = Double.parseDouble(attributes.getValue(1));
                 }
